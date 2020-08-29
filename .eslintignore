@@ -1,0 +1,16 @@
+# Mac
+.DS_Store
+
+# Node
+node_modules/
+yarn-error.log
+
+# Build
+dist/
+coverage/
+
+# data definition files
+**/*.d.ts
+
+# custom definition files
+/src/types/

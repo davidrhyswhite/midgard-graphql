@@ -1,0 +1,84 @@
+"""
+Returns an object containing global stats for all pools and all transactions.
+"""
+type Stats {
+  """
+  Daily active users (unique addresses interacting)
+  """
+  dailyActiveUsers: String!
+
+  """
+  Monthly active users
+  """
+  monthlyActiveUsers: String!
+
+  """
+  Total unique swappers & stakers
+  """
+  totalUsers: String!
+
+  """
+  Daily transactions
+  """
+  dailyTx: String!
+
+  """
+  Monthly transactions
+  """
+  monthlyTx: String!
+
+  """
+  Total transactions
+  """
+  totalTx: String!
+
+  """
+  Total (in RUNE Value) of all assets swapped in 24hrs
+  """
+  totalVolume24hr: String!
+
+  """
+  Total (in RUNE Value) of all assets swapped since start.
+  """
+  totalVolume: String!
+
+  """
+  Total staked (in RUNE Value).
+  """
+  totalStaked: String!
+
+  """
+  Total RUNE balances
+  """
+  totalDepth: String!
+
+  """
+  Total earned (in RUNE Value).
+  """
+  totalEarned: String!
+
+  """
+  Number of active pools
+  """
+  poolCount: String!
+
+  """
+  Total buying transactions
+  """
+  totalAssetBuys: String!
+
+  """
+  Total selling transactions
+  """
+  totalAssetSells: String!
+
+  """
+  Total staking transactions
+  """
+  totalStakeTx: String!
+
+  """
+  Total withdrawing transactions
+  """
+  totalWithdrawTx: String!
+}

@@ -1,0 +1,52 @@
+enum AssetPoolStatus {
+  boostrapped
+  enabled
+  disabled
+}
+
+type AssetPoolType {
+  chain: String!
+  symbol: String!
+  ticker: String!
+}
+
+type AssetPool {
+  asset: AssetPoolType!
+  status: AssetPoolStatus!
+  price: String!
+  assetStakedTotal: String!
+  runeStakedTotal: String!
+  poolStakedTotal: String!
+  assetDepth: String!
+  runeDepth: String!
+  poolDepth: String!
+  poolUnits: String!
+  sellVolume: String!
+  buyVolume: String!
+  poolVolume: String!
+  poolVolume24hr: String!
+  sellTxAverage: String!
+  buyTxAverage: String!
+  poolTxAverage: String!
+  sellSlipAverage: String!
+  buySlipAverage: String!
+  poolSlipAverage: String!
+  sellFeeAverage: String!
+  buyFeeAverage: String!
+  poolFeeAverage: String!
+  sellFeesTotal: String!
+  buyFeesTotal: String!
+  poolFeesTotal: String!
+  sellAssetCount: String!
+  buyAssetCount: String!
+  swappingTxCount: String!
+  swappersCount: String!
+  stakeTxCount: String!
+  withdrawTxCount: String!
+  stakingTxCount: String!
+  stakersCount: String!
+  assetROI: String!
+  runeROI: String!
+  poolROI: String!
+  poolROI12: String!
+}

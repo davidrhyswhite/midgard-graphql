@@ -1,0 +1,21 @@
+# Mac
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+yarn-error.log
+
+# Coverage reports
+coverage/
+
+# Build
+dist/
+
+# Editors
+.idea
+*.iml
+
+# Additional
+logs/
+tmp/

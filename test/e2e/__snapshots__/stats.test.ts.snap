@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`returns a stats type from application 1`] = `
+Object {
+  "data": Object {
+    "stats": Object {
+      "dailyActiveUsers": "dailyActiveUsers",
+      "dailyTx": "dailyTx",
+      "monthlyActiveUsers": "monthlyActiveUsers",
+      "monthlyTx": "monthlyTx",
+      "poolCount": "poolCount",
+      "totalAssetBuys": "totalAssetBuys",
+      "totalAssetSells": "totalAssetSells",
+      "totalDepth": "totalDepth",
+      "totalEarned": "totalEarned",
+      "totalStakeTx": "totalStakeTx",
+      "totalStaked": "totalStaked",
+      "totalTx": "totalTx",
+      "totalUsers": "totalUsers",
+      "totalVolume": "totalVolume",
+      "totalVolume24hr": "totalVolume24hr",
+      "totalWithdrawTx": "totalWithdrawTx",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;

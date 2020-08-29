@@ -1,0 +1,59 @@
+{
+  "name": "midgard-graphql",
+  "version": "0.1.0",
+  "description": "A simple GraphQL service for the THORChain Midgard API",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidrhyswhite/midgard-graphql.git"
+  },
+  "author": "David Rhys White<david.rhys.white@icloud.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf node_modules/ dist/",
+    "postclean": "yarn install",
+    "prebuild": "npm run lint",
+    "build": "tsc && ncp src/schema dist/schema",
+    "debug": "npm run build && npm run watch-debug",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --fix && prettier --loglevel=silent --write .",
+    "dev": "nodemon",
+    "dev:debug": "nodemon --inspect",
+    "prestart": "yarn build",
+    "start": "node dist/server.js",
+    "test": "jest --detectOpenHandles --coverage --verbose",
+    "test:watch": "npm run test -- --watchAll"
+  },
+  "dependencies": {
+    "@graphql-tools/graphql-file-loader": "^6.0.18",
+    "@graphql-tools/load": "^6.0.18",
+    "@graphql-tools/schema": "^6.0.18",
+    "@thorchain/asgardex-util": "^0.3.0",
+    "apollo-datasource-rest": "^0.9.3",
+    "apollo-server": "^2.16.1",
+    "bignumber.js": "^9.0.0",
+    "config": "^3.3.1",
+    "graphql": "^15.3.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/config": "^0.0.36",
+    "@types/eslint": "^6.1.1",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.7.8",
+    "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "apollo-server-testing": "^2.16.1",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "graphql-tag": "^2.11.0",
+    "jest": "^24.9.0",
+    "ncp": "^2.0.0",
+    "nock": "^13.0.4",
+    "nodemon": "^1.19.2",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  }
+}

@@ -1,0 +1,9 @@
+# import Stats from './stats.graphql'
+# import AssetPool from './asset-pool.graphql'
+
+type Query {
+  stats: Stats
+  pools: [AssetPool]!
+
+  # assetPoolsByAsset(asset: String!): [AssetPool]!
+}

@@ -1,0 +1,12 @@
+{
+  "services": {
+    "midgard": {
+      "hostname": "http://midgard.hostname.local",
+      "paths": {
+        "stats": "/stats/path",
+        "pools": "/pools/path",
+        "poolsDetail": "/pools/detail/path"
+      }
+    }
+  }
+}

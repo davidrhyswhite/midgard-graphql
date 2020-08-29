@@ -1,0 +1,12 @@
+{
+  "services": {
+    "midgard": {
+      "hostname": "https://midgard.bepswap.com",
+      "paths": {
+        "stats": "/v1/stats",
+        "pools": "/v1/pools",
+        "poolsDetail": "/v1/pools/detail"
+      }
+    }
+  }
+}

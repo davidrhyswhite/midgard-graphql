@@ -1,0 +1,7 @@
+{
+  "services": {
+    "midgard": {
+      "hostname": "https://midgard.bepswap.com"
+    }
+  }
+}

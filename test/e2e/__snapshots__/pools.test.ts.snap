@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`returns an AssetPool type from application 1`] = `
+Object {
+  "data": Object {
+    "pools": Array [
+      Object {
+        "asset": Object {
+          "chain": "AAA",
+          "symbol": "BBB-CCC",
+          "ticker": "BBB",
+        },
+        "price": "price",
+        "status": "enabled",
+      },
+      Object {
+        "asset": Object {
+          "chain": "DDD",
+          "symbol": "EEE-FFF",
+          "ticker": "EEE",
+        },
+        "price": "price",
+        "status": "disabled",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
