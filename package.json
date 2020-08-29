@@ -9,18 +9,18 @@
   "author": "David Rhys White<david.rhys.white@icloud.com>",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf node_modules/ dist/",
+    "clean": "rimraf coverage/ dist/ logs/ node_modules/",
     "postclean": "yarn install",
-    "prebuild": "npm run lint",
     "build": "tsc && ncp src/schema dist/schema",
-    "debug": "npm run build && npm run watch-debug",
-    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --fix && prettier --loglevel=silent --write .",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" && prettier --loglevel=silent .",
+    "lint:fix": "tsc --noEmit && eslint \"**/*.{js,ts}\" --fix && prettier --loglevel=silent --write .",
     "dev": "nodemon",
     "dev:debug": "nodemon --inspect",
     "prestart": "yarn build",
     "start": "node dist/server.js",
-    "test": "jest --detectOpenHandles --coverage --verbose",
-    "test:watch": "npm run test -- --watchAll"
+    "test": "jest --detectOpenHandles --verbose",
+    "test:coverage": "yarn test --coverage",
+    "test:watch": "yarn test --watchAll"
   },
   "dependencies": {
     "@graphql-tools/graphql-file-loader": "^6.0.18",
