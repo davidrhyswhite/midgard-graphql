@@ -10,17 +10,16 @@ A simple GraphQL service for the THORChain ⚡️ Midgard API.
 - [Getting started](#getting-started)
 - [Debugging](#debugging)
 - [Testing](#testing)
-- [Linting & Prettifying](#linting-&amp;-prettifying)
+- [Linting & Prettifying](#linting-&-prettifying)
 - [VSCode Extensions](#vscode-extensions)
-
 
 ## Prerequisites
 
 To build and run this app locally you will need a few things:
 
-- Install: [Node.js](https://nodejs.org/en/)
+- Install: [Node.js v14.x](https://nodejs.org/en/)
+- Install: [Yarn](https://yarnpkg.com) with `npm install --global yarn`
 - Optionally install: [VS Code](https://code.visualstudio.com/)
-
 
 ## Getting started
 
@@ -45,19 +44,18 @@ To call a script, simply run `yarn <script-name>` from the command line.
 
 Below is a list of all the scripts this template has available:
 
-| Script               | Description                                                                                          |
-| -------------------- | ---------------------------------------------------------------------------------------------------- |
-| `clean`              | Removes all generated files and builds and re-installs the applecations modules.                     |
-| `build`              | Runs the TypeScript compiler and builds the application into the ./dist folder.                      |
-| `lint`               | Runs a combination of TypeScript type checking, ESLint and Prettier.                                 |
-| `lint:fix`           | Runs the above lint task but tries to fix / write any simple fixes                                   |
-| `dev`                | Run the application in dev mode. Runs with the `NODE_ENV=testnet` environment.                       |
-| `dev:debug`          | As above but opens the running instance to the web inspector.                                        |
-| `start`              | Runs the application in a production like mode currently with the `NODE_ENV=chaosnet` environment.   |
-| `test`               | Runs all the applications tests with Jest.                                                           |
-| `test:coverage`      | As above but runs with  the `--coverage` flag cor code coverage.                                     |
-| `test:watch`         | Keeps the Jest test runner running in watch mode for changes.                                        |
-
+| Script          | Description                                                                                        |
+| --------------- | -------------------------------------------------------------------------------------------------- |
+| `clean`         | Removes all generated files and builds and re-installs the applecations modules.                   |
+| `build`         | Runs the TypeScript compiler and builds the application into the ./dist folder.                    |
+| `lint`          | Runs a combination of TypeScript type checking, ESLint and Prettier.                               |
+| `lint:fix`      | Runs the above lint task but tries to fix / write any simple fixes                                 |
+| `dev`           | Run the application in dev mode. Runs with the `NODE_ENV=testnet` environment.                     |
+| `dev:debug`     | As above but opens the running instance to the web inspector.                                      |
+| `start`         | Runs the application in a production like mode currently with the `NODE_ENV=chaosnet` environment. |
+| `test`          | Runs all the applications tests with Jest.                                                         |
+| `test:coverage` | As above but runs with the `--coverage` flag cor code coverage.                                    |
+| `test:watch`    | Keeps the Jest test runner running in watch mode for changes.                                      |
 
 ## Debugging
 
@@ -67,12 +65,11 @@ Debugging TypeScript is exactly like debugging JavaScript with one caveat, you n
 
 You can debug in the following ways using the `.vscode/launch.json` tasks:
 
-| Process                 | Description                                                                   |
-| ----------------------- | ----------------------------------------------------------------------------- |
-| **Run debug**           | Runs the application with `yarn dev:debug` and attaches the VSCode debugger.  |
-| **Test: All**           | Runs all the tests and allows debugging with break points.                    |
-| **Test: Current File**  | Runs the open and active test file in VSCode.                                 |
-
+| Process                | Description                                                                  |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| **Run debug**          | Runs the application with `yarn dev:debug` and attaches the VSCode debugger. |
+| **Test: All**          | Runs all the tests and allows debugging with break points.                   |
+| **Test: Current File** | Runs the open and active test file in VSCode.                                |
 
 ## Testing
 
@@ -80,7 +77,7 @@ The [Jest](https://facebook.github.io/jest/) testing framework is used for testi
 
 ### Unit, Integration, E2Es
 
-The testing approach is split across unit, integration and e2e tests. 
+The testing approach is split across unit, integration and e2e tests.
 
 1. **Unit testing**: Units have the `*.unit.ts` file extension. The unit tests have full mocking on all external dependencies.
 2. **Integration testing**: Integrations have the `*.integration.ts` file extension. They use no mocking letting the underlying calls pass through and use snapshots for data.
@@ -95,7 +92,6 @@ The testing approach is split across unit, integration and e2e tests.
 The linting and prettifying is all run through a single command
 
     yarn lint
-
 
 ## VSCode Extensions
 

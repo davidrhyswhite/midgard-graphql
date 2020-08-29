@@ -12,7 +12,7 @@
     "clean": "rimraf coverage/ dist/ logs/ node_modules/",
     "postclean": "yarn install",
     "build": "tsc && ncp src/schema dist/schema",
-    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" && prettier --loglevel=silent .",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" && prettier --loglevel=silent --check .",
     "lint:fix": "tsc --noEmit && eslint \"**/*.{js,ts}\" --fix && prettier --loglevel=silent --write .",
     "dev": "nodemon",
     "dev:debug": "nodemon --inspect",
@@ -55,5 +55,78 @@
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/test/**/*.(test|unit|integration).(ts|js)"
+    ],
+    "testEnvironment": "node"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      ".git",
+      "node_modules/**/*"
+    ],
+    "verbose": true,
+    "watch": [
+      "src",
+      "config"
+    ],
+    "ext": "ts js json graphql",
+    "exec": "ts-node ./src/server.ts",
+    "env": {
+      "NODE_ENV": "testnet"
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "prettier/@typescript-eslint"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "semi": [
+        "error",
+        "always"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "@typescript-eslint/no-explicit-any": 1,
+      "@typescript-eslint/no-unused-vars": "warn"
+    }
   }
 }
