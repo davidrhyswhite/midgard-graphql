@@ -1,4 +1,7 @@
 {
+  "app": {
+    "port": 4000
+  },
   "services": {
     "midgard": {
       "hostname": "http://midgard.hostname.local",

@@ -1,4 +1,7 @@
 {
+  "app": {
+    "port": 8282
+  },
   "services": {
     "midgard": {
       "hostname": "https://midgard.bepswap.com",

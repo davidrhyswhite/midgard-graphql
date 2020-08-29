@@ -10,7 +10,7 @@ A simple GraphQL service for the THORChain ⚡️ Midgard API.
 - [Getting started](#getting-started)
 - [Debugging](#debugging)
 - [Testing](#testing)
-- [Linting & Prettifying](#linting-&-prettifying)
+- [Linting & Prettifying](#linting--prettifying)
 - [VSCode Extensions](#vscode-extensions)
 
 ## Prerequisites
