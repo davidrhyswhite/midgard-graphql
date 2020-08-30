@@ -1,6 +1,6 @@
 {
   "app": {
-    "port": 8282
+    "port": 8082
   },
   "services": {
     "midgard": {

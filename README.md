@@ -19,7 +19,8 @@ To build and run this app locally you will need a few things:
 
 - Install: [Node.js v14.x](https://nodejs.org/en/)
 - Install: [Yarn](https://yarnpkg.com) with `npm install --global yarn`
-- Optionally install: [VS Code](https://code.visualstudio.com/)
+- Optionally install: [VS Code](https://code.visualstudio.com)
+- Optionally install: [Docker](https://www.docker.com)
 
 ## Getting started
 
@@ -36,7 +37,7 @@ To build and run this app locally you will need a few things:
 
 Or, if you're using VS Code, you can use `cmd + shift + b` to run the default build task (which is mapped to `yarn build`), and then you can use the command palette (`cmd + shift + p`) and select `Tasks: Run Task` > `yarn: debug` to run `npm debug` for you.
 
-Finally, navigate to `http://localhost:8282/graphql` and you should see the GraphQL Playground running!
+Finally, navigate to `http://localhost:8082/graphql` and you should see the GraphQL Playground running!
 
 ### Useful scripts
 
@@ -44,18 +45,21 @@ To call a script, simply run `yarn <script-name>` from the command line.
 
 Below is a list of all the scripts this template has available:
 
-| Script          | Description                                                                                        |
-| --------------- | -------------------------------------------------------------------------------------------------- |
-| `clean`         | Removes all generated files and builds and re-installs the applecations modules.                   |
-| `build`         | Runs the TypeScript compiler and builds the application into the ./dist folder.                    |
-| `lint`          | Runs a combination of TypeScript type checking, ESLint and Prettier.                               |
-| `lint:fix`      | Runs the above lint task but tries to fix / write any simple fixes                                 |
-| `dev`           | Run the application in dev mode. Runs with the `NODE_ENV=testnet` environment.                     |
-| `dev:debug`     | As above but opens the running instance to the web inspector.                                      |
-| `start`         | Runs the application in a production like mode currently with the `NODE_ENV=chaosnet` environment. |
-| `test`          | Runs all the applications tests with Jest.                                                         |
-| `test:coverage` | As above but runs with the `--coverage` flag cor code coverage.                                    |
-| `test:watch`    | Keeps the Jest test runner running in watch mode for changes.                                      |
+| Script            | Description                                                                                        |
+| ----------------- | -------------------------------------------------------------------------------------------------- |
+| `build`           | Runs the TypeScript compiler and builds the application into the ./dist folder.                    |
+| `clean`           | Removes all generated files and builds and re-installs the applecations modules.                   |
+| `container:build` | Build the docker container and tag to `midgard-graphql:latest`.                                    |
+| `container:run`   | Run the docker container `midgard-graphql:latest`.                                                 |
+| `dev`             | Run the application in dev mode. Runs with the `NODE_ENV=testnet` environment.                     |
+| `dev:debug`       | As above but opens the running instance to the web inspector.                                      |
+| `lint`            | Runs a combination of TypeScript type checking, ESLint and Prettier.                               |
+| `lint:fix`        | Runs the above lint task but tries to fix / write any simple fixes                                 |
+| `start`           | Runs the application in a production like mode currently with the `NODE_ENV=chaosnet` environment. |
+| `test`            | Runs all the applications tests with Jest.                                                         |
+| `test:coverage`   | As above but runs with the `--coverage` flag cor code coverage.                                    |
+| `test:watch`      | Keeps the Jest test runner running in watch mode for changes.                                      |
+
 
 ## Debugging
 
@@ -100,3 +104,4 @@ To enhance your development experience while working in VSCode, a list of the su
 - [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Jest](https://marketplace.visualstudio.com/items?itemName=orta.vscode-jest)
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
