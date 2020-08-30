@@ -27,7 +27,7 @@ To build and run this app locally you will need a few things:
 **Install the application**
 
     git clone --depth=1 https://github.com/davidrhyswhite/midgard-graphql.git
-    cd midgard-graphqls
+    cd midgard-graphql
     yarn install
 
 **Build and run the project**
@@ -59,7 +59,6 @@ Below is a list of all the scripts this template has available:
 | `test`            | Runs all the applications tests with Jest.                                                         |
 | `test:coverage`   | As above but runs with the `--coverage` flag cor code coverage.                                    |
 | `test:watch`      | Keeps the Jest test runner running in watch mode for changes.                                      |
-
 
 ## Debugging
 
