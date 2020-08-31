@@ -4,6 +4,8 @@
 
 A simple GraphQL service for the THORChain ⚡️ Midgard API. Build on [Apollo Server](https://www.apollographql.com).
 
+![query](https://user-images.githubusercontent.com/458085/91698026-fc95f180-eb69-11ea-8bf4-7f7f1cef3e9d.jpg 'Apollo Playground')
+
 ## Table of contents:
 
 - [Prerequisites](#prerequisites)
