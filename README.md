@@ -2,7 +2,7 @@
 
 ![Midgard GraphQL CI](https://github.com/davidrhyswhite/midgard-graphql/workflows/Midgard%20GraphQL%20CI/badge.svg)
 
-A simple GraphQL service for the THORChain ⚡️ Midgard API.
+A simple GraphQL service for the THORChain ⚡️ Midgard API. Build on [Apollo Server](https://www.apollographql.com).
 
 ## Table of contents:
 

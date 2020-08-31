@@ -1,5 +1,5 @@
-import resolvers from '../src/resolvers';
-import { Context } from '../src/types/context';
+import { stats } from '../../src/resolvers/stats';
+import { Context } from '../../src/types/context';
 
 const context = ({
   dataSources: {
@@ -9,9 +9,8 @@ const context = ({
   },
 } as unknown) as Context;
 
-test('Query.stats calls MidgardAPI.getStats method and returns', () => {
-  // @ts-ignore
-  const value = resolvers.Query.stats(null, null, context);
+test('stats resolver calls MidgardAPI.getStats method and returns', async () => {
+  const value = await stats(null, null, context);
   expect(context.dataSources.midgardAPI.getStats).toBeCalledTimes(1);
   expect(value).toBe('getStats');
 });

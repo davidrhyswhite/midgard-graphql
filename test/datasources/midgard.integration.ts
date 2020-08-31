@@ -1,31 +1,41 @@
 import nock from 'nock';
+import { createStats, createPoolsDetail } from '../helpers/mock-creators';
 import MidgardAPI from '../../src/datasources/midgard';
+import { Stats } from '../../src/types/midgard/stats';
+import { MidgardAssetPool } from '../../src/types/midgard/asset-pools';
 
-const statsObject = {
-  dailyActiveUsers: 'dailyActiveUsers',
-  dailyTx: 'dailyTx',
-  monthlyActiveUsers: 'monthlyActiveUsers',
-  monthlyTx: 'monthlyTx',
-  poolCount: 'poolCount',
-  totalAssetBuys: 'totalAssetBuys',
-  totalAssetSells: 'totalAssetSells',
-  totalDepth: 'totalDepth',
-  totalEarned: 'totalEarned',
-  totalStakeTx: 'totalStakeTx',
-  totalStaked: 'totalStaked',
-  totalTx: 'totalTx',
-  totalUsers: 'totalUsers',
-  totalVolume: 'totalVolume',
-  totalVolume24hr: 'totalVolume24hr',
-  totalWithdrawTx: 'totalWithdrawTx',
-};
+test('getStats makes HTTP request to /stats/path and returns object', async () => {
+  const stats = createStats();
+  nock('http://midgard.hostname.local').get('/stats/path').reply(200, stats);
 
-test('getStats makes HTTP request to /v1/stats and returns object', async () => {
-  nock('http://midgard.hostname.local').get('/stats/path').reply(200, statsObject);
   const midgard = new MidgardAPI();
   midgard.initialize({ context: {}, cache: undefined });
 
-  const getStatsValue = await midgard.getStats();
+  const getStatsValue: Stats = await midgard.getStats();
 
-  expect(getStatsValue).toStrictEqual(statsObject);
+  expect(getStatsValue).toStrictEqual(stats);
+});
+
+test('getPools makes HTTP request to /pools/path and returns object', async () => {
+  const pools = ['AAA.BBB-CCC'];
+  nock('http://midgard.hostname.local').get('/pools/path').reply(200, pools);
+
+  const midgard = new MidgardAPI();
+  midgard.initialize({ context: {}, cache: undefined });
+
+  const getPoolsValue = await midgard.getPools();
+
+  expect(getPoolsValue).toStrictEqual(pools);
+});
+
+test('getAssetPools makes HTTP request to /pools/detail/path and returns object', async () => {
+  const poolsDetail = createPoolsDetail();
+  nock('http://midgard.hostname.local').get('/pools/detail/path').query({ asset: 'asset' }).reply(200, poolsDetail);
+
+  const midgard = new MidgardAPI();
+  midgard.initialize({ context: {}, cache: undefined });
+
+  const getAssetPoolsValue: Array<MidgardAssetPool> = await midgard.getAssetPools('asset');
+
+  expect(getAssetPoolsValue).toStrictEqual(poolsDetail);
 });

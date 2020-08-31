@@ -1,7 +1,7 @@
-import { AssetPoolInput, AssetPool } from '../../src/types/midgard/asset-pools';
+import { MidgardAssetPool, AssetPool } from '../../src/types/midgard/asset-pools';
 import { transform } from '../../src/transformers/asset-pool';
 
-const input: AssetPoolInput = {
+const input: MidgardAssetPool = {
   status: 'status',
   price: 'price',
   asset: 'AAA.BBB-CCC',
@@ -42,7 +42,7 @@ const input: AssetPoolInput = {
   poolROI12: 'poolROI12',
 };
 
-test('transforms AssetPoolInput to AssetPool', () => {
+test('transforms MidgardAssetPool to AssetPool', () => {
   const transformed: AssetPool = transform(input);
 
   expect(transformed).toStrictEqual({

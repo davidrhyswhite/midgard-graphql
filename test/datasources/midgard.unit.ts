@@ -12,6 +12,10 @@ jest.mock('apollo-datasource-rest', () => {
   };
 });
 
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
 test('sets baseURL to settings.hostname', async () => {
   const midgard = new MidgardAPI();
 
@@ -33,10 +37,27 @@ test('sets settings to config.services.midgard', async () => {
 
 test('getStats calls this.get with settings.paths.stats and returns value', async () => {
   const midgard = new MidgardAPI();
-
   const getStatsValue = await midgard.getStats();
 
   expect(mockRestGet).toBeCalledTimes(1);
   expect(mockRestGet).toBeCalledWith('/stats/path');
   expect(getStatsValue).toBe('mockRestGet');
+});
+
+test('getPools calls this.get with settings.paths.pools and returns value', async () => {
+  const midgard = new MidgardAPI();
+  const getPoolsValue = await midgard.getPools();
+
+  expect(mockRestGet).toBeCalledTimes(1);
+  expect(mockRestGet).toBeCalledWith('/pools/path');
+  expect(getPoolsValue).toBe('mockRestGet');
+});
+
+test('getAssetPools calls this.get with settings.paths.poolsDetail and returns value', async () => {
+  const midgard = new MidgardAPI();
+  const getAssetPoolsValue = await midgard.getAssetPools('asset');
+
+  expect(mockRestGet).toBeCalledTimes(1);
+  expect(mockRestGet).toBeCalledWith('/pools/detail/path', { asset: 'asset' });
+  expect(getAssetPoolsValue).toBe('mockRestGet');
 });

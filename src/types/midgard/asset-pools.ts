@@ -40,7 +40,7 @@ type AssetPoolDefaults = {
   poolROI12: string;
 };
 
-export type AssetPoolInput = AssetPoolDefaults & {
+export type MidgardAssetPool = AssetPoolDefaults & {
   asset: string;
 };
 
