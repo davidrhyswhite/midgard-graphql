@@ -1,16 +1,21 @@
-# Mac
-.DS_Store
-
 # Node
 node_modules/
-yarn-error.log
+
+# Coverage reports
+coverage/
 
 # Build
 dist/
-coverage/
 
 # data definition files
 **/*.d.ts
 
 # custom definition files
 /src/types/
+
+# Additional
+logs/
+tmp/
+
+# Serverless directories
+.serverless/

@@ -1,4 +1,4 @@
-import { IResolvers } from 'apollo-server';
+import { IResolvers } from 'graphql-tools';
 import { stats } from './resolvers/stats';
 import { pools } from './resolvers/pools';
 

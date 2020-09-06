@@ -8,6 +8,8 @@ jest.mock('winston', () => ({
   createLogger: jest.fn(() => 'winston.createLogger'),
 }));
 
+jest.mock('winston-cloudwatch', () => jest.fn().mockImplementation());
+
 beforeAll(() => require('../../src/utils/logger'));
 
 test('calls winston.transports.Console with level: error', () => {
