@@ -19,6 +19,3 @@ dist/
 # Additional
 logs/
 tmp/
-
-# Serverless directories
-.serverless/

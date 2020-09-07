@@ -8,7 +8,7 @@
   },
   "author": "David Rhys White<david.rhys.white@icloud.com>",
   "engines": {
-    "node": ">= 12.18.0"
+    "node": ">= 14.8.0"
   },
   "license": "MIT",
   "scripts": {
@@ -17,15 +17,11 @@
     "postclean": "yarn install",
     "container:build": "./scripts/container/build.sh",
     "container:run": "./scripts/container/run.sh",
-    "predeploy": "yarn build",
-    "deploy": "serverless deploy",
-    "deploy:testnet": "yarn deploy --stage testnet",
-    "deploy:chaosnet": "yarn deploy --stage chaosnet",
     "dev": "nodemon",
     "dev:debug": "nodemon --inspect",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" && prettier --check .",
     "lint:fix": "tsc --noEmit && eslint \"**/*.{js,ts}\" --fix && prettier --loglevel=silent --write .",
-    "start": "node dist/run/server.js",
+    "start": "node dist/server.js",
     "test": "jest --detectOpenHandles --verbose",
     "test:coverage": "yarn test --coverage",
     "test:watch": "yarn test --watchAll"
@@ -37,13 +33,10 @@
     "@thorchain/asgardex-util": "^0.3.0",
     "apollo-datasource-rest": "^0.9.3",
     "apollo-server": "^2.16.1",
-    "apollo-server-core": "^2.16.1",
-    "apollo-server-lambda": "^2.16.1",
     "bignumber.js": "^9.0.0",
     "config": "^3.3.1",
     "graphql": "^15.3.0",
-    "winston": "^3.2.1",
-    "winston-cloudwatch": "^2.3.2"
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@types/config": "^0.0.36",
@@ -109,7 +102,7 @@
       "config"
     ],
     "ext": "ts js json graphql",
-    "exec": "ts-node ./src/run/server.ts",
+    "exec": "ts-node ./src/server.ts",
     "env": {
       "NODE_ENV": "testnet"
     }

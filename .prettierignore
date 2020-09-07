@@ -1,15 +1,4 @@
-# Node
-node_modules/
-
-# Coverage reports
 coverage/
-
-# Build
+node_modules/
 dist/
-
-# Additional
-logs/
 tmp/
-
-# Serverless directories
-.serverless/

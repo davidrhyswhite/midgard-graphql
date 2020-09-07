@@ -4,7 +4,7 @@
   },
   "services": {
     "midgard": {
-      "hostname": "https://chaosnet-midgard.bepswap.com",
+      "hostname": "https://midgard.bepswap.com",
       "paths": {
         "stats": "/v1/stats",
         "pools": "/v1/pools",

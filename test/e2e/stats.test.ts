@@ -1,9 +1,8 @@
 import { createTestClient } from 'apollo-server-testing';
-import { ApolloServer } from 'apollo-server';
 import gql from 'graphql-tag';
 import nock from 'nock';
 import { createStats } from '../helpers/mock-creators';
-import { createServer } from '../../src/app';
+import app from '../../src/app';
 
 const GET_STATS = gql`
   query getStats {
@@ -29,7 +28,7 @@ const GET_STATS = gql`
 `;
 
 test('returns a stats type from application', async () => {
-  const { query } = createTestClient(createServer(ApolloServer));
+  const { query } = createTestClient(app);
 
   nock('http://midgard.hostname.local').get('/stats/path').reply(200, createStats());
 
