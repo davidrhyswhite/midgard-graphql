@@ -53,6 +53,9 @@ Below is a list of all the scripts this template has available:
 | `clean`           | Removes all generated files and builds and re-installs the applecations modules.                   |
 | `container:build` | Build the docker container and tag to `midgard-graphql:latest`.                                    |
 | `container:run`   | Run the docker container `midgard-graphql:latest`.                                                 |
+| `deploy`          | Deploy the application, accepts a `--stage` argument which defaults to `dev`.                      |
+| `deploy:testnet`  | Deploys the application to AWS with testnet config.                                                |
+| `deploy:chaosnet` | Deploys the application to AWS with chaosnet config.                                               |
 | `dev`             | Run the application in dev mode. Runs with the `NODE_ENV=testnet` environment.                     |
 | `dev:debug`       | As above but opens the running instance to the web inspector.                                      |
 | `lint`            | Runs a combination of TypeScript type checking, ESLint and Prettier.                               |
