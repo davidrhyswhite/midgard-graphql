@@ -8,7 +8,7 @@
   },
   "author": "David Rhys White<david.rhys.white@icloud.com>",
   "engines": {
-    "node": ">= 14.8.0"
+    "node": ">= 12.18.0"
   },
   "license": "MIT",
   "scripts": {

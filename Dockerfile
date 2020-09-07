@@ -1,6 +1,6 @@
 # Building container
 
-FROM node:14.9.0 as builder
+FROM node:12.18.3 as builder
 
 WORKDIR /build
 
@@ -15,7 +15,7 @@ RUN yarn install && \
 
 # Running container
 
-FROM node:14.9.0-alpine
+FROM node:12.18.3-alpine
 
 WORKDIR /app
 
