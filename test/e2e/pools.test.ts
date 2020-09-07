@@ -1,8 +1,9 @@
 import { createTestClient } from 'apollo-server-testing';
+import { ApolloServer } from 'apollo-server';
 import gql from 'graphql-tag';
 import nock from 'nock';
 import { createPoolsDetail } from '../helpers/mock-creators';
-import app from '../../src/app';
+import { createServer } from '../../src/app';
 
 const GET_POOLS = gql`
   query getPools {
@@ -19,7 +20,7 @@ const GET_POOLS = gql`
 `;
 
 test('returns an AssetPool type from application', async () => {
-  const { query } = createTestClient(app);
+  const { query } = createTestClient(createServer(ApolloServer));
 
   nock('http://midgard.hostname.local').get('/pools/path').reply(200, ['AAA.BBB-CCC', 'DDD.EEE-FFF']);
 
