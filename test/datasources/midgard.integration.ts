@@ -39,3 +39,18 @@ test('getAssetPools makes HTTP request to /pools/detail/path and returns object'
 
   expect(getAssetPoolsValue).toStrictEqual(poolsDetail);
 });
+
+test('getTransactions makes HTTP request to /transactions/path and returns object', async () => {
+  const poolsDetail = createPoolsDetail();
+  nock('http://midgard.hostname.local')
+    .get('/transactions/path')
+    .query({ limit: 10, offset: 20 })
+    .reply(200, poolsDetail);
+
+  const midgard = new MidgardAPI();
+  midgard.initialize({ context: {}, cache: undefined });
+
+  const getTransactionsValue = await midgard.getTransactions({ limit: 10, offset: 20 });
+
+  expect(getTransactionsValue).toStrictEqual(poolsDetail);
+});

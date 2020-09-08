@@ -31,6 +31,7 @@ test('sets settings to config.services.midgard', async () => {
       stats: '/stats/path',
       pools: '/pools/path',
       poolsDetail: '/pools/detail/path',
+      transactions: '/transactions/path',
     },
   });
 });
@@ -60,4 +61,13 @@ test('getAssetPools calls this.get with settings.paths.poolsDetail and returns v
   expect(mockRestGet).toBeCalledTimes(1);
   expect(mockRestGet).toBeCalledWith('/pools/detail/path', { asset: 'asset' });
   expect(getAssetPoolsValue).toBe('mockRestGet');
+});
+
+test('getTransactions calls this.get with settings.paths.transactions and returns value', async () => {
+  const midgard = new MidgardAPI();
+  const getTransactionsValue = await midgard.getTransactions({ limit: 10, offset: 20 });
+
+  expect(mockRestGet).toBeCalledTimes(1);
+  expect(mockRestGet).toBeCalledWith('/transactions/path', { limit: 10, offset: 20 });
+  expect(getTransactionsValue).toBe('mockRestGet');
 });

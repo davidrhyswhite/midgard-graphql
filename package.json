@@ -12,7 +12,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsc && ncp src/schema dist/schema",
+    "build": "tsc && yarn build:schema",
+    "build:schema": "ts-node ./scripts/schema/build.ts",
     "clean": "rimraf coverage/ dist/ logs/ node_modules/",
     "postclean": "yarn install",
     "container:build": "./scripts/container/build.sh",
@@ -22,7 +23,7 @@
     "deploy:testnet": "yarn deploy --stage testnet",
     "deploy:chaosnet": "yarn deploy --stage chaosnet",
     "dev": "nodemon",
-    "dev:debug": "nodemon --inspect",
+    "dev:debug": "yarn dev --inspect",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" && prettier --check .",
     "lint:fix": "tsc --noEmit && eslint \"**/*.{js,ts}\" --fix && prettier --loglevel=silent --write .",
     "start": "node dist/run/server.js",
@@ -31,9 +32,8 @@
     "test:watch": "yarn test --watchAll"
   },
   "dependencies": {
-    "@graphql-tools/graphql-file-loader": "^6.0.18",
-    "@graphql-tools/load": "^6.0.18",
-    "@graphql-tools/schema": "^6.0.18",
+    "@graphql-tools/graphql-file-loader": "^6.2.1",
+    "@graphql-tools/load": "^6.2.1",
     "@thorchain/asgardex-util": "^0.3.0",
     "apollo-datasource-rest": "^0.9.3",
     "apollo-server": "^2.16.1",
@@ -109,9 +109,10 @@
       "config"
     ],
     "ext": "ts js json graphql",
-    "exec": "ts-node ./src/run/server.ts",
+    "exec": "yarn build:schema && ts-node ./src/run/server.ts",
     "env": {
-      "NODE_ENV": "testnet"
+      "NODE_ENV": "chaosnet",
+      "LOCAL": "true"
     }
   },
   "prettier": {

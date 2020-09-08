@@ -1,0 +1,8 @@
+# import TransactionDetail from '../transactions/detail.graphql'
+# import PageInfo from '../page-info.graphql'
+
+type TransactionConnection {
+  totalCount: Int!
+  nodes: [TransactionDetail]!
+  pageInfo: PageInfo!
+}

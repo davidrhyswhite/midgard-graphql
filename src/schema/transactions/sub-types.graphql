@@ -1,0 +1,42 @@
+# import AssetPoolType from '../asset-pool.graphql'
+
+type TransactionOptions {
+  priceTarget: String!
+  withdrawBasisPoints: String!
+  asymmetry: String!
+}
+
+type TransactionEvents {
+  fee: String!
+  stakeUnits: String!
+  slip: String!
+}
+
+type Transaction {
+  txID: String!
+  memo: String!
+  address: String!
+  coins: [Sum]
+}
+
+type Sum {
+  asset: AssetPoolType!
+  amount: String!
+}
+
+enum TransactionType {
+  swap
+  stake
+  unstake
+  rewards
+  add
+  pool
+  gas
+  refund
+  doubleSwap
+}
+
+enum TransactionStatus {
+  success
+  refund
+}
