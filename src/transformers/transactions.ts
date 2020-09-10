@@ -1,6 +1,7 @@
 import { toTransactionsDetail } from './helpers/transactions';
 import { toPageInfo } from './page-info';
-import { TransactionConnection, MidgardTransactions } from 'midgard/transactions';
+import { MidgardTransactions } from 'midgard/transactions';
+import { TransactionConnection } from '../generated/graphql';
 
 export function transform(
   data: MidgardTransactions,

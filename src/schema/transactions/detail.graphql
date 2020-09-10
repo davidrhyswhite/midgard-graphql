@@ -8,7 +8,7 @@ type TransactionDetail {
   in: Transaction!
   out: [Transaction]
   date: Int!
-  gas: Sum!
+  gas: Sum
   options: TransactionOptions!
   height: String!
   events: TransactionEvents!

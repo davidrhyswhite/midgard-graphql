@@ -1,27 +1,13 @@
 import { assetFromString } from '@thorchain/asgardex-util';
-import {
-  TransactionDetail,
-  Transaction,
-  Sum,
-  MidgardTransactionDetail,
-  MidgardTx,
-  MidgardSum,
-} from 'midgard/transactions';
+import { MidgardTransactionDetail, MidgardTx, MidgardSum } from 'midgard/transactions';
+import { AssetPoolType, TransactionDetail, Transaction, Sum } from '../../generated/graphql';
 
 export function toSum(sum: MidgardSum): Sum {
   return {
     ...sum,
-    asset: assetFromString(sum.asset),
+    asset: assetFromString(sum.asset) as AssetPoolType,
   };
 }
-
-export function toGas(sum: MidgardSum): Sum | void {
-  if (typeof sum === 'undefined') {
-    return null;
-  }
-  return toSum(sum);
-}
-
 export function toTransaction(data: MidgardTx): Transaction {
   return {
     ...data,
@@ -32,9 +18,9 @@ export function toTransaction(data: MidgardTx): Transaction {
 export function toTransactionsDetail(data: MidgardTransactionDetail): TransactionDetail {
   return {
     ...data,
-    pool: assetFromString(data.pool),
+    pool: assetFromString(data.pool) as AssetPoolType,
     in: toTransaction(data.in),
     out: data.out.map(toTransaction),
-    gas: toGas(data.gas),
+    gas: toSum(data.gas),
   };
 }

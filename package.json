@@ -12,8 +12,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsc && yarn build:schema",
+    "prebuild": "yarn build:schema && yarn build:types",
+    "build": "tsc",
     "build:schema": "ts-node ./scripts/schema/build.ts",
+    "build:types": "graphql-codegen --config codegen.yml",
     "clean": "rimraf coverage/ dist/ logs/ node_modules/",
     "postclean": "yarn install",
     "container:build": "./scripts/container/build.sh",
@@ -46,6 +48,9 @@
     "winston-cloudwatch": "^2.3.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "1.17.8",
+    "@graphql-codegen/typescript": "1.17.8",
+    "@graphql-codegen/typescript-resolvers": "1.17.8",
     "@types/config": "^0.0.36",
     "@types/eslint": "^6.1.1",
     "@types/jest": "^24.0.23",

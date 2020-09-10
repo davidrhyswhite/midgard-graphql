@@ -1,7 +1,8 @@
-import { Asset } from '@thorchain/asgardex-util';
+import { AssetPoolStatus } from '../../generated/graphql';
 
-type AssetPoolDefaults = {
-  status: string;
+export type MidgardAssetPool = {
+  asset: string;
+  status: AssetPoolStatus;
   price: string;
   assetStakedTotal: string;
   runeStakedTotal: string;
@@ -38,12 +39,4 @@ type AssetPoolDefaults = {
   runeROI: string;
   poolROI: string;
   poolROI12: string;
-};
-
-export type MidgardAssetPool = AssetPoolDefaults & {
-  asset: string;
-};
-
-export type AssetPool = AssetPoolDefaults & {
-  asset: Asset;
 };

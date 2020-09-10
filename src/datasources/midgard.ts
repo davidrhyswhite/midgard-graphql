@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { Stats } from '../types/midgard/stats';
+import { Stats } from '../generated/graphql';
 import { MidgardAssetPool } from '../types/midgard/asset-pools';
 import logger from '../utils/logger';
 import config from 'config';
