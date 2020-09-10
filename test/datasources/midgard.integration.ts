@@ -1,7 +1,7 @@
 import nock from 'nock';
 import { createStats, createPoolsDetail } from '../helpers/mock-creators';
 import MidgardAPI from '../../src/datasources/midgard';
-import { Stats } from '../../src/types/midgard/stats';
+import { Stats } from '../../src/generated/graphql';
 import { MidgardAssetPool } from '../../src/types/midgard/asset-pools';
 
 test('getStats makes HTTP request to /stats/path and returns object', async () => {
