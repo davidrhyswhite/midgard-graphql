@@ -15,7 +15,7 @@
     "prebuild": "yarn build:schema && yarn build:types",
     "build": "tsc",
     "build:schema": "ts-node ./scripts/schema/build.ts",
-    "build:types": "graphql-codegen --config codegen.yml",
+    "build:types": "graphql-codegen --config .graphqlconfig",
     "clean": "rimraf coverage/ dist/ logs/ node_modules/",
     "postclean": "yarn install",
     "container:build": "./scripts/container/build.sh",
