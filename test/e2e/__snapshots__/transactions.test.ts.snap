@@ -6,16 +6,60 @@ Object {
     "transactions": Object {
       "nodes": Array [
         Object {
+          "date": 123456789,
+          "events": Object {
+            "fee": "fee",
+            "slip": "slip",
+            "stakeUnits": "stakeUnits",
+          },
+          "gas": Object {
+            "amount": "amount",
+            "asset": Object {
+              "chain": "AAA",
+              "symbol": "BBB-CCC",
+              "ticker": "BBB",
+            },
+          },
+          "height": "height",
           "in": Object {
             "address": "address",
+            "coins": Array [
+              Object {
+                "amount": "amount",
+                "asset": Object {
+                  "chain": "AAA",
+                  "symbol": "BBB-CCC",
+                  "ticker": "BBB",
+                },
+              },
+            ],
+            "memo": "memo",
             "txID": "txID",
+          },
+          "options": Object {
+            "asymmetry": "asymmetry",
+            "priceTarget": "priceTarget",
+            "withdrawBasisPoints": "withdrawBasisPoints",
           },
           "out": Array [
             Object {
               "address": "address",
+              "coins": Array [
+                Object {
+                  "amount": "amount",
+                  "asset": Object {
+                    "chain": "AAA",
+                    "symbol": "BBB-CCC",
+                    "ticker": "BBB",
+                  },
+                },
+              ],
+              "memo": "memo",
               "txID": "txID",
             },
           ],
+          "pool": null,
+          "status": "success",
           "type": "stake",
         },
       ],
