@@ -1,0 +1,20 @@
+query getStats {
+  stats {
+    dailyActiveUsers
+    monthlyActiveUsers
+    totalUsers
+    dailyTx
+    monthlyTx
+    totalTx
+    totalVolume24hr
+    totalVolume
+    totalStaked
+    totalDepth
+    totalEarned
+    poolCount
+    totalAssetBuys
+    totalAssetSells
+    totalStakeTx
+    totalWithdrawTx
+  }
+}

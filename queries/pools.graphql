@@ -1,0 +1,46 @@
+query getPools {
+  pools {
+    asset {
+      chain
+      symbol
+      ticker
+    }
+    status
+    price
+    assetStakedTotal
+    runeStakedTotal
+    poolStakedTotal
+    assetDepth
+    runeDepth
+    poolDepth
+    poolUnits
+    sellVolume
+    buyVolume
+    poolVolume
+    poolVolume24hr
+    sellTxAverage
+    buyTxAverage
+    poolTxAverage
+    sellSlipAverage
+    buySlipAverage
+    poolSlipAverage
+    sellFeeAverage
+    buyFeeAverage
+    poolFeeAverage
+    sellFeesTotal
+    buyFeesTotal
+    poolFeesTotal
+    sellAssetCount
+    buyAssetCount
+    swappingTxCount
+    swappersCount
+    stakeTxCount
+    withdrawTxCount
+    stakingTxCount
+    stakersCount
+    assetROI
+    runeROI
+    poolROI
+    poolROI12
+  }
+}

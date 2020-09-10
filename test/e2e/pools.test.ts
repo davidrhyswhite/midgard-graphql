@@ -1,24 +1,12 @@
 import { createTestClient } from 'apollo-server-testing';
 import { ApolloServer } from 'apollo-server';
-import gql from 'graphql-tag';
 import nock from 'nock';
 import { AssetPoolStatus } from '../../src/generated/graphql';
 import { createPoolsDetail } from '../helpers/mock-creators';
 import { createServer } from '../../src/app';
+import { importQuery } from '../helpers/import-query';
 
-const GET_POOLS = gql`
-  query getPools {
-    pools {
-      status
-      asset {
-        chain
-        symbol
-        ticker
-      }
-      price
-    }
-  }
-`;
+const POOLS_QUERY = importQuery('pools.graphql');
 
 test('returns an AssetPool type from application', async () => {
   const { query } = createTestClient(createServer(ApolloServer));
@@ -36,6 +24,6 @@ test('returns an AssetPool type from application', async () => {
     .reply(200, createPoolsDetail({ asset: 'DDD.EEE-FFF', status: AssetPoolStatus.Disabled }));
 
   // run query against the server and snapshot the output
-  const res = await query({ query: GET_POOLS });
+  const res = await query({ query: POOLS_QUERY });
   expect(res).toMatchSnapshot();
 });
