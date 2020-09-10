@@ -20,7 +20,7 @@ type Transaction {
 }
 
 type Sum {
-  asset: AssetPoolType!
+  asset: AssetPoolType
   amount: String!
 }
 

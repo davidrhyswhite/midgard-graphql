@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`returns an TransactionConnection type from application 1`] = `
+Object {
+  "data": Object {
+    "transactions": Object {
+      "nodes": Array [
+        Object {
+          "in": Object {
+            "address": "address",
+            "txID": "txID",
+          },
+          "out": Array [
+            Object {
+              "address": "address",
+              "txID": "txID",
+            },
+          ],
+          "type": "stake",
+        },
+      ],
+      "pageInfo": Object {
+        "endCursor": -19,
+        "hasNextPage": false,
+        "nextCursor": null,
+      },
+      "totalCount": 1,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
