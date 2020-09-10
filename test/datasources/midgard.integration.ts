@@ -1,7 +1,7 @@
 import nock from 'nock';
 import { createStats, createPoolsDetail } from '../helpers/mock-creators';
 import MidgardAPI from '../../src/datasources/midgard';
-import { Stats } from '../../src/types/midgard/stats';
+import { Stats } from '../../src/generated/graphql';
 import { MidgardAssetPool } from '../../src/types/midgard/asset-pools';
 
 test('getStats makes HTTP request to /stats/path and returns object', async () => {
@@ -38,4 +38,19 @@ test('getAssetPools makes HTTP request to /pools/detail/path and returns object'
   const getAssetPoolsValue: Array<MidgardAssetPool> = await midgard.getAssetPools('asset');
 
   expect(getAssetPoolsValue).toStrictEqual(poolsDetail);
+});
+
+test('getTransactions makes HTTP request to /transactions/path and returns object', async () => {
+  const poolsDetail = createPoolsDetail();
+  nock('http://midgard.hostname.local')
+    .get('/transactions/path')
+    .query({ limit: 10, offset: 20 })
+    .reply(200, poolsDetail);
+
+  const midgard = new MidgardAPI();
+  midgard.initialize({ context: {}, cache: undefined });
+
+  const getTransactionsValue = await midgard.getTransactions({ limit: 10, offset: 20 });
+
+  expect(getTransactionsValue).toStrictEqual(poolsDetail);
 });

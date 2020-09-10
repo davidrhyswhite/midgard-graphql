@@ -8,7 +8,8 @@
       "paths": {
         "stats": "/v1/stats",
         "pools": "/v1/pools",
-        "poolsDetail": "/v1/pools/detail"
+        "poolsDetail": "/v1/pools/detail",
+        "transactions": "/v1/txs"
       }
     }
   }

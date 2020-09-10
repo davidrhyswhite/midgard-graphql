@@ -1,5 +1,6 @@
 import { assetFromString } from '@thorchain/asgardex-util';
-import { MidgardAssetPool, AssetPool } from 'midgard/asset-pools';
+import { MidgardAssetPool } from 'midgard/asset-pools';
+import { AssetPool } from '../generated/graphql';
 
 export function transform(data: MidgardAssetPool): AssetPool {
   return {

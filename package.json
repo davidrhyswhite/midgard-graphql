@@ -12,7 +12,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsc && ncp src/schema dist/schema",
+    "prebuild": "yarn build:schema && yarn build:types",
+    "build": "tsc",
+    "build:schema": "ts-node ./scripts/schema/build.ts",
+    "build:types": "graphql-codegen --config codegen.yml",
     "clean": "rimraf coverage/ dist/ logs/ node_modules/",
     "postclean": "yarn install",
     "container:build": "./scripts/container/build.sh",
@@ -22,7 +25,7 @@
     "deploy:testnet": "yarn deploy --stage testnet",
     "deploy:chaosnet": "yarn deploy --stage chaosnet",
     "dev": "nodemon",
-    "dev:debug": "nodemon --inspect",
+    "dev:debug": "yarn dev --inspect",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" && prettier --check .",
     "lint:fix": "tsc --noEmit && eslint \"**/*.{js,ts}\" --fix && prettier --loglevel=silent --write .",
     "start": "node dist/run/server.js",
@@ -31,9 +34,8 @@
     "test:watch": "yarn test --watchAll"
   },
   "dependencies": {
-    "@graphql-tools/graphql-file-loader": "^6.0.18",
-    "@graphql-tools/load": "^6.0.18",
-    "@graphql-tools/schema": "^6.0.18",
+    "@graphql-tools/graphql-file-loader": "^6.2.1",
+    "@graphql-tools/load": "^6.2.1",
     "@thorchain/asgardex-util": "^0.3.0",
     "apollo-datasource-rest": "^0.9.3",
     "apollo-server": "^2.16.1",
@@ -46,6 +48,9 @@
     "winston-cloudwatch": "^2.3.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "1.17.8",
+    "@graphql-codegen/typescript": "1.17.8",
+    "@graphql-codegen/typescript-resolvers": "1.17.8",
     "@types/config": "^0.0.36",
     "@types/eslint": "^6.1.1",
     "@types/jest": "^24.0.23",
@@ -109,9 +114,10 @@
       "config"
     ],
     "ext": "ts js json graphql",
-    "exec": "ts-node ./src/run/server.ts",
+    "exec": "yarn build:types && ts-node ./src/run/server.ts",
     "env": {
-      "NODE_ENV": "testnet"
+      "NODE_ENV": "chaosnet",
+      "LOCAL": "true"
     }
   },
   "prettier": {

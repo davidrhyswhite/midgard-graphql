@@ -1,0 +1,15 @@
+# import AssetPoolType from '../asset-pool.graphql'
+# import * from './sub-types.graphql'
+
+type TransactionDetail {
+  pool: AssetPoolType
+  type: TransactionType!
+  status: TransactionStatus!
+  in: Transaction!
+  out: [Transaction]
+  date: Int!
+  gas: Sum
+  options: TransactionOptions!
+  height: String!
+  events: TransactionEvents!
+}

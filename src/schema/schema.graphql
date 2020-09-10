@@ -1,9 +1,9 @@
 # import Stats from './stats.graphql'
 # import AssetPool from './asset-pool.graphql'
+# import TransactionConnection from './transactions/connection.graphql'
 
 type Query {
-  stats: Stats
+  stats: Stats!
   pools: [AssetPool]!
-
-  # assetPoolsByAsset(asset: String!): [AssetPool]!
+  transactions(limit: Int = 10, offset: Int = 0): TransactionConnection!
 }

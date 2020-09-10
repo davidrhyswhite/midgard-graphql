@@ -1,8 +1,9 @@
-import { MidgardAssetPool, AssetPool } from '../../src/types/midgard/asset-pools';
+import { MidgardAssetPool } from '../../src/types/midgard/asset-pools';
 import { transform } from '../../src/transformers/asset-pool';
+import { AssetPool, AssetPoolStatus } from '../../src/generated/graphql';
 
 const input: MidgardAssetPool = {
-  status: 'status',
+  status: AssetPoolStatus.Enabled,
   price: 'price',
   asset: 'AAA.BBB-CCC',
   assetStakedTotal: 'assetStakedTotal',

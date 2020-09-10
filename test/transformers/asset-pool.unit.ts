@@ -1,13 +1,14 @@
 import { assetFromString } from '@thorchain/asgardex-util';
-import { MidgardAssetPool, AssetPool } from '../../src/types/midgard/asset-pools';
+import { MidgardAssetPool } from '../../src/types/midgard/asset-pools';
 import { transform } from '../../src/transformers/asset-pool';
+import { AssetPool, AssetPoolStatus } from '../../src/generated/graphql';
 
 jest.mock('@thorchain/asgardex-util', () => ({
   assetFromString: jest.fn(() => 'assetFromString'),
 }));
 
 const input: MidgardAssetPool = {
-  status: 'status',
+  status: AssetPoolStatus.Enabled,
   price: 'price',
   asset: 'asset',
   assetStakedTotal: 'assetStakedTotal',

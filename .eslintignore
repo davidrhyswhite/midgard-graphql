@@ -19,3 +19,6 @@ tmp/
 
 # Serverless directories
 .serverless/
+
+# Codegen generated code
+src/generated/

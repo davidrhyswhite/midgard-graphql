@@ -1,5 +1,11 @@
 import { MidgardAssetPool } from '../../../src/types/midgard/asset-pools';
-import { Stats } from '../../../src/types/midgard/stats';
+import {
+  MidgardTransactions,
+  MidgardTx,
+  MidgardSum,
+  MidgardTransactionDetail,
+} from '../../../src/types/midgard/transactions';
+import { Stats, AssetPoolStatus, TransactionType, TransactionStatus } from '../../../src/generated/graphql';
 
 export const createStats = (): Stats => ({
   dailyActiveUsers: 'dailyActiveUsers',
@@ -20,12 +26,12 @@ export const createStats = (): Stats => ({
   totalWithdrawTx: 'totalWithdrawTx',
 });
 
-export const createPoolsDetail = ({ asset, status }: { asset?: string; status?: string } = {}): Array<
+export const createPoolsDetail = ({ asset, status }: { asset?: string; status?: AssetPoolStatus } = {}): Array<
   MidgardAssetPool
 > => [
   {
     asset: asset || 'AAA.BBB-CCC',
-    status: status || 'enabled',
+    status: status || AssetPoolStatus.Enabled,
     price: 'price',
     assetStakedTotal: 'assetStakedTotal',
     runeStakedTotal: 'runeStakedTotal',
@@ -64,3 +70,40 @@ export const createPoolsDetail = ({ asset, status }: { asset?: string; status?: 
     poolROI12: 'poolROI12',
   },
 ];
+export const createMidgardSum = (): MidgardSum => ({
+  asset: 'AAA.BBB-CCC',
+  amount: 'amount',
+});
+
+export const createMidgardTx = (): MidgardTx => ({
+  txID: 'txID',
+  memo: 'memo',
+  address: 'address',
+  coins: [createMidgardSum()],
+});
+
+export const createTransactionDetail = (): MidgardTransactionDetail => ({
+  pool: 'pool',
+  type: TransactionType.Stake,
+  status: TransactionStatus.Success,
+  in: createMidgardTx(),
+  out: [createMidgardTx()],
+  date: 123456789,
+  gas: createMidgardSum(),
+  options: {
+    priceTarget: 'priceTarget',
+    withdrawBasisPoints: 'withdrawBasisPoints',
+    asymmetry: 'asymmetry',
+  },
+  height: 'height',
+  events: {
+    fee: 'fee',
+    stakeUnits: 'stakeUnits',
+    slip: 'slip',
+  },
+});
+
+export const createTransactions = (): MidgardTransactions => ({
+  count: 1,
+  txs: [createTransactionDetail()],
+});
