@@ -50,7 +50,9 @@ Below is a list of all the scripts this template has available:
 | Script            | Description                                                                                        |
 | ----------------- | -------------------------------------------------------------------------------------------------- |
 | `build`           | Runs the TypeScript compiler and builds the application into the ./dist folder.                    |
-| `clean`           | Removes all generated files and builds and re-installs the applecations modules.                   |
+| `build:schema`    | Builds the schema into a single .graphql file                                                      |
+| `build:types`     | Generates types from the GraphQL schema.                                                           |
+| `clean`           | Removes all generated files and builds and re-installs the applications modules.                   |
 | `container:build` | Build the docker container and tag to `midgard-graphql:latest`.                                    |
 | `container:run`   | Run the docker container `midgard-graphql:latest`.                                                 |
 | `deploy`          | Deploy the application, accepts a `--stage` argument which defaults to `dev`.                      |

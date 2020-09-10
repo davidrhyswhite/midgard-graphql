@@ -114,7 +114,7 @@
       "config"
     ],
     "ext": "ts js json graphql",
-    "exec": "yarn build:schema && ts-node ./src/run/server.ts",
+    "exec": "yarn build:types && ts-node ./src/run/server.ts",
     "env": {
       "NODE_ENV": "chaosnet",
       "LOCAL": "true"
