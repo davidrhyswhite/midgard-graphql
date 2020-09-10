@@ -1,0 +1,60 @@
+fragment asset on AssetPoolType {
+  chain
+  symbol
+  ticker
+}
+
+fragment sum on Sum {
+  asset {
+    ...asset
+  }
+  amount
+}
+
+fragment transaction on Transaction {
+  txID
+  memo
+  address
+  coins {
+    ...sum
+  }
+}
+
+query getTransactions($limit: Int!, $offset: Int!) {
+  transactions(limit: $limit, offset: $offset) {
+    totalCount
+    nodes {
+      pool {
+        ...asset
+      }
+      type
+      status
+      in {
+        ...transaction
+      }
+      out {
+        ...transaction
+      }
+      date
+      gas {
+        ...sum
+      }
+      options {
+        priceTarget
+        withdrawBasisPoints
+        asymmetry
+      }
+      height
+      events {
+        fee
+        stakeUnits
+        slip
+      }
+    }
+    pageInfo {
+      nextCursor
+      endCursor
+      hasNextPage
+    }
+  }
+}
