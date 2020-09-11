@@ -1,7 +1,15 @@
 import { ApolloServer } from 'apollo-server';
+import { loadConfigSync } from 'graphql-config';
 import { createServer } from '../src/app';
 
 jest.mock('apollo-server');
+jest.mock('graphql-config', () => ({
+  loadConfigSync: jest.fn(() => 'loadConfigSync'),
+}));
+
+test('loads config from root directory', () => {
+  expect(loadConfigSync).toBeCalledWith({ rootDir: './' });
+});
 
 test('calls ApolloServer once', () => {
   createServer(ApolloServer);
@@ -21,7 +29,7 @@ test('enables playground', () => {
   createServer(ApolloServer);
   expect(ApolloServer).toBeCalledWith(
     expect.objectContaining({
-      playground: true,
+      playground: { config: 'loadConfigSync' },
     }),
   );
 });
